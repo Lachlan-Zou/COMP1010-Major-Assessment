@@ -18,13 +18,13 @@ public class DiceRandomiser {
         int randoms = random.nextInt(dicesides.size());
         return dicesides.get(randoms);
     }
-
-
-    public static void main(String[] args) {
-        DiceRandomiser dice = new DiceRandomiser();
-
-    // Rolling dice and printing result
-        int result = dice.rollDice();
-        System.out.println("The dice landed on: " + result);
-    }
 }
+
+//     public static void main(String[] args) {
+//         DiceRandomiser dice = new DiceRandomiser();
+
+//     // Rolling dice and printing result
+//         int result = dice.rollDice();
+//         System.out.println("The dice landed on: " + result);
+//     }
+// }
