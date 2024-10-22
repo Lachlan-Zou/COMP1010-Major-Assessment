@@ -2,19 +2,21 @@ public class Character {
     int healthpoint;
     int strength;
     int defence;
+    DiceRandomiser dice; // Dice randomizer to add unpreditability
 
     public Character( int healthpoint, int strength, int defence){
         this.healthpoint=healthpoint;
         this.strength = strength;
         this.defence = defence;
+        this.dice = new DiceRandomiser(); //Initialize dice roller
 
     }
-// method to attack 
+// Method to attack 
     public void attack(Character enemy){
         //damage based on characters strength and enemy defence
         int damage = this.strength - enemy.defence;
         if(damage > 0){
-            enemy.healthpoint -= damage;
+            enemy.healthpoint -= damage; //Reduce enemy health points by damage dealt
             System.out.println(this + " attacked " + enemy + " causing " + damage + " damage.");    
 
         }
@@ -23,6 +25,7 @@ public class Character {
         }
     }
 
+    // Method to defend
     public void defend(Character enemy){
         //negate any damage based on characters strength and enemy defence
         int damage = enemy.strength - this.defence;

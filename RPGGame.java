@@ -1,0 +1,92 @@
+import java.util.List;
+import java.util.Scanner;
+
+public class RPGGame {
+
+    public static Character createCharacter(Scanner input, String playerName) {
+        System.out.println(playerName + ", choose your race: (1) Human (2) Orc (3) Elf (4) Dwarf");
+        int choice = input.nextInt();
+        switch (choice) {
+            case 1:
+                System.out.println(playerName + " selected Human.");
+                return new Character(16, 16, 18);
+            case 2:
+                System.out.println(playerName + " selected Orc.");
+                return new Character(20, 18, 14);
+            case 3:
+                System.out.println(playerName + " selected Elf.");
+                return new Character(15, 14, 20);
+            case 4:
+                System.out.println(playerName + " selected Dwarf.");
+                return new Character(18, 20, 16);
+            default:
+                System.out.println("Invalid choice, defaulting to Human.");
+                return new Character(16, 16, 18);
+        }
+    }
+
+    public static void battle(List<Character> team1, List<Character> team2) {
+        int round = 1;
+        while (isTeamAlive(team1) && isTeamAlive(team2)) {
+            System.out.println("\n--- Round " + round + " ---");
+
+            // Team 1's turn
+            for (Character character : team1) {
+                if (character.healthpoint > 0) {
+                    takeTurn(character, team2);
+                    if (!isTeamAlive(team2)) break; // End the game if Team 2 is defeated
+                }
+            }
+
+            if (!isTeamAlive(team2)) {
+                System.out.println("Team 1 wins the battle!");
+                return;
+            }
+
+            // Team 2's turn
+            for (Character character : team2) {
+                if (character.healthpoint > 0) {
+                    takeTurn(character, team1);
+                    if (!isTeamAlive(team1)) break; // End the game if Team 1 is defeated
+                }
+            }
+
+            if (!isTeamAlive(team1)) {
+                System.out.println("Team 2 wins the battle!");
+                return;
+            }
+
+            round++;
+        }
+    }
+
+    public static void takeTurn(Character character, List<Character> enemyTeam) {
+        Scanner input = new Scanner(System.in);
+        Character enemy = enemyTeam.get((int) (Math.random() * enemyTeam.size())); // Random enemy target
+        System.out.println(character + " is taking a turn. Choose action: (1) Attack (2) Defend");
+        int action = input.nextInt();
+
+        switch (action) {
+            case 1:
+                character.attack(enemy);
+                break;
+            case 2:
+                character.defend(enemy);
+                break;
+            default:
+                System.out.println("Invalid action, attacking by default.");
+                character.attack(enemy);
+                break;
+        }
+    }
+
+    public static boolean isTeamAlive(List<Character> team) {
+        for (Character character : team) {
+            if (character.healthpoint > 0) {
+                return true;
+            }
+        }
+        return false;
+    }
+}
+
