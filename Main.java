@@ -1,3 +1,4 @@
+// Main.java - Entry point of the game
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -22,7 +23,7 @@ public class Main {
         // Start the battle
         RPGGame.battle(team1, team2);
 
-        input.close();
+        input.close(); // Close scanner input
     }
 }
 

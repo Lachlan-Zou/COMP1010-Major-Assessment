@@ -1,3 +1,4 @@
+// Character.java - Class a character in the RPG game
 public class Character {
     int healthpoint;
     int strength;
@@ -11,17 +12,19 @@ public class Character {
         this.dice = new DiceRandomiser(); //Initialize dice roller
 
     }
-// Method to attack 
-    public void attack(Character enemy){
-        //damage based on characters strength and enemy defence
-        int damage = this.strength - enemy.defence;
-        if(damage > 0){
-            enemy.healthpoint -= damage; //Reduce enemy health points by damage dealt
-            System.out.println(this + " attacked " + enemy + " causing " + damage + " damage.");    
+    // Method to attack 
+    public void attack(Character enemy) {
+        int diceRoll = dice.rollDice();  // Get a random dice roll
+        int baseDamage = this.strength - enemy.defence;  // Base damage calculation (Strength - Defence)
+        int damage = baseDamage + diceRoll;  // Final damage after adding dice roll
 
+        // Ensure that a minimum of 1 damage is dealt, even if the calculation is negative or zero
+        if (damage <= 0) {
+            damage = 1;  // Set minimum damage to 1
         }
         else{
-            System.out.println(enemy + " blocked the attack!");
+            enemy.healthpoint -= damage;  // Reduce enemy health points by the damage dealt
+            System.out.println(this + " attacked " + enemy + " causing " + damage + " damage.");
         }
     }
 
