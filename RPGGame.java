@@ -6,7 +6,7 @@ public class RPGGame {
 
     // Method for Character selection process
     public static Character createCharacter(Scanner input, String playerName) {
-        System.out.println(playerName + ", choose your race: (1) Human (2) Orc (3) Elf (4) Dwarf");
+        System.out.println(playerName + ", choose your race: (1) Human (2) Orc (3) Elf (4) Dwarf (5) Info");
         int choice = input.nextInt();
         switch (choice) {
             case 1:
@@ -21,6 +21,9 @@ public class RPGGame {
             case 4:
                 System.out.println(playerName + " selected Dwarf.");
                 return new Character(18, 20, 16, playerName); // Dwarf stats
+            case 5:
+                System.out.println("Selected Info");
+                //info();
             default:
                 System.out.println("Invalid choice, defaulting to Human.");
                 return new Character(16, 16, 18, playerName); // Default choice Human
@@ -94,5 +97,6 @@ public class RPGGame {
         }
         return false; // Returns false once all characters are defeated
     }
+
 }
 
