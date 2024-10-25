@@ -1,11 +1,13 @@
 // Character.java - Class a character in the RPG game
 public class Character {
+    String playerName;
     int healthpoint;
     int strength;
     int defence;
     DiceRandomiser dice; // Dice randomizer to add unpreditability
 
-    public Character( int healthpoint, int strength, int defence){
+    public Character( int healthpoint, int strength, int defence, String playerName){
+        this.playerName = playerName;
         this.healthpoint=healthpoint;
         this.strength = strength;
         this.defence = defence;
@@ -24,7 +26,7 @@ public class Character {
         }
         else{
             enemy.healthpoint -= damage;  // Reduce enemy health points by the damage dealt
-            System.out.println(this + " attacked " + enemy + " causing " + damage + " damage.");
+            System.out.println(this.playerName + " attacked " + enemy.playerName + " causing " + damage + " damage.");
         }
     }
 
@@ -34,11 +36,11 @@ public class Character {
         int damage = enemy.strength - this.defence;
         if(damage > 0){
             this.healthpoint -= damage;
-            System.out.println(enemy + " attacked " + this + " causing " + damage + " damage.");    
+            System.out.println(enemy.playerName + " attacked " + this.playerName + " causing " + damage + " damage.");    
 
         }
         else{
-            System.out.println(this + " blocked the attack!");
+            System.out.println(this.playerName + " blocked the attack!");
         }
 }
 }

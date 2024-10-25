@@ -11,19 +11,19 @@ public class RPGGame {
         switch (choice) {
             case 1:
                 System.out.println(playerName + " selected Human.");
-                return new Character(16, 16, 18); // Human stats
+                return new Character(16, 16, 18, playerName); // Human stats
             case 2:
                 System.out.println(playerName + " selected Orc.");
-                return new Character(20, 18, 14); // Orc stats
+                return new Character(20, 18, 14, playerName); // Orc stats
             case 3:
                 System.out.println(playerName + " selected Elf.");
-                return new Character(15, 14, 20); // Elf stats
+                return new Character(15, 14, 20, playerName); // Elf stats
             case 4:
                 System.out.println(playerName + " selected Dwarf.");
-                return new Character(18, 20, 16); // Dwarf stats
+                return new Character(18, 20, 16, playerName); // Dwarf stats
             default:
                 System.out.println("Invalid choice, defaulting to Human.");
-                return new Character(16, 16, 18); // Default choice Human
+                return new Character(16, 16, 18, playerName); // Default choice Human
         }
     }
 
@@ -68,7 +68,7 @@ public class RPGGame {
     public static void takeTurn(Character character, List<Character> enemyTeam) {
         Scanner input = new Scanner(System.in);
         Character enemy = enemyTeam.get((int) (Math.random() * enemyTeam.size())); // Random enemy target
-        System.out.println(character + " is taking a turn. Choose action: (1) Attack (2) Defend");
+        System.out.println(character.playerName + " is taking a turn. Choose action: (1) Attack (2) Defend");
         int action = input.nextInt();
 
         // Performs the chosen action by the Player
