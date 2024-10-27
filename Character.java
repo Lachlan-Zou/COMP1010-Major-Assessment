@@ -5,13 +5,16 @@ public class Character {
     int healthpoint;
     int strength;
     int defence;
+    int speed;
     DiceRandomiser dice; // Dice randomizer to add unpreditability
+    List<Character> team;
 
-    public Character( int healthpoint, int strength, int defence, String playerName){
+    public Character( int healthpoint, int strength, int defence, int speed, String playerName){
         this.playerName = playerName;
         this.healthpoint=healthpoint;
         this.strength = strength;
         this.defence = defence;
+        this.speed = speed;
         this.dice = new DiceRandomiser(); //Initialize dice roller
 
 
@@ -43,10 +46,51 @@ public class Character {
         if(damage > 0){
             this.healthpoint -= damage;
             System.out.println(enemy.playerName + " attacked " + this.playerName + " causing " + damage + " damage.");    
-
+            if (this.healthpoint<=0) {
+                // Put down the team removal here.
+            }
         }
         else{
             System.out.println(this.playerName + " blocked the attack!");
         }
-}
+    }
+
+    public void dodge(Character enemy, List<Character> enemyTeam) {
+        int diceRoll = dice.rollDice();  // Get a random dice roll
+        int baseDamage = this.strength - enemy.defence;  // Base damage calculation (Strength - Defence)
+        int damage = baseDamage + diceRoll;  // Final damage after adding dice roll
+        boolean dodgeHit = true;
+        if (enemy.speed>this.speed) {
+            this.healthpoint -=damage;
+            System.out.println(this.playerName+" was too slow! "  + damage + " was dealt.");
+            if (this.healthpoint<=0) {
+                // Put down the team removal here.
+            }
+        }
+        for (int i = 0; i <5-this.speed; i++) {
+            int rand = (int) (Math.random()*5);
+            if (rand==this.speed) {
+                dodgeHit = true;
+                break;
+            }
+        }
+        if (dodgeHit) {
+            System.out.println(this.playerName+"'s dodge was only half successful.");
+            this.healthpoint -= damage/2;
+            System.out.println(this.playerName+ " took " + damage/2);
+            if (this.healthpoint<=0) {
+                // Put down the team removal here.
+            }
+        }
+        else {
+            System.out.println(this.playerName+ " successfully dodges!");
+            enemy.healthpoint -= damage*2;
+            System.out.println(this.playerName+ " counterattacks! dealing " + damage*2 + " damage!");
+            if (enemy.healthpoint<=0) {
+                enemyTeam.remove(enemy);
+                System.out.println(enemy.playerName + " Has been killed!");
+            }
+        }
+
+    }
 }

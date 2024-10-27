@@ -16,19 +16,19 @@ public class RPGGame {
         switch (choice) {
             case 1:
                 System.out.println(playerName + " selected Human.");
-                return new Character(16, 16, 18, playerName); // Human stats
+                return new Character(16, 16, 18, 3, playerName); // Human stats
             case 2:
                 System.out.println(playerName + " selected Orc.");
-                return new Character(20, 18, 14, playerName); // Orc stats
+                return new Character(20, 18, 14, 1, playerName); // Orc stats
             case 3:
                 System.out.println(playerName + " selected Elf.");
-                return new Character(15, 14, 20, playerName); // Elf stats
+                return new Character(15, 14, 20, 5, playerName); // Elf stats
             case 4:
                 System.out.println(playerName + " selected Dwarf.");
-                return new Character(18, 20, 16, playerName); // Dwarf stats
+                return new Character(18, 20, 16, 4, playerName); // Dwarf stats
             default:
                 System.out.println("Invalid choice, defaulting to Human.");
-                return new Character(16, 16, 18, playerName); // Default choice Human
+                return new Character(16, 16, 18, 3, playerName); // Default choice Human
         }
     }
 
@@ -102,7 +102,7 @@ public class RPGGame {
 
         System.out.printf("\n--- %s's Turn ---\n", character.playerName);
         System.out.printf("Current HP: %d\n", character.healthpoint);
-        System.out.println("Choose action: (1) Attack  (2) Defend");
+        System.out.println("Choose action: (1) Attack  (2) Defend  (3) Dodge");
         System.out.print("> ");
         int action = input.nextInt();
 
@@ -113,6 +113,9 @@ public class RPGGame {
                 break;
             case 2:
                 character.defend(enemy); // Defend from the enemy
+                break;
+            case 3:
+                character.dodge(enemy, enemyTeam);
                 break;
             default:
                 System.out.println("Invalid action, attacking by default.");
