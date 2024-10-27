@@ -21,11 +21,3 @@ public class DiceRandomiser {
     }
 }
 
-//     public static void main(String[] args) {
-//         DiceRandomiser dice = new DiceRandomiser();
-
-//     // Rolling dice and printing result
-//         int result = dice.rollDice();
-//         System.out.println("The dice landed on: " + result);
-//     }
-// }
