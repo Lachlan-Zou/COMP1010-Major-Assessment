@@ -62,7 +62,7 @@ public class Character {
         if (damage <= 0) {
             damage = 1;  // Set minimum damage to 1
         }
-        boolean dodgeHit = true;
+        boolean dodgeHit = false;
         if (enemy.speed>this.speed) {
             this.healthpoint -=damage;
             System.out.println(this.playerName+" was too slow! "  + damage + " was dealt.");

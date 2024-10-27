@@ -1,9 +1,9 @@
 The game is a turn-based combat game with different classes and actions.
 Players are put onto teams of two.
-Players can choose whether to attack, defend or dodge
+Players can choose whether to attack, defend or dodge.
 The game ends once one team has defeated the other.
 Players can also choose what class they want to play as.
-Press Enter to read about class stats
+Press Enter to read about class stats,
 Human has base stats, health: 16, strength: 16, defence: 18 and speed 3.
 Orc has base stats, health: 20, strength: 18, defence: 14 and speed 1.
 Elf has base stats, health: 15, strength: 14, defence: 20 and speed 5.
