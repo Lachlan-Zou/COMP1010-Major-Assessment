@@ -74,14 +74,14 @@ public class RPGGame {
         // Performs the chosen action by the Player
         switch (action) {
             case 1:
-                character.attack(enemy); // Attack the selected enemy
+                character.attack(enemy, enemyTeam); // Attack the selected enemy
                 break;
             case 2:
                 character.defend(enemy); // Defend from the enemy
                 break;
             default:
                 System.out.println("Invalid action, attacking by default.");
-                character.attack(enemy); // Default to attack if invalid action
+                character.attack(enemy, enemyTeam); // Default to attack if invalid action
                 break;
         }
     }
