@@ -27,8 +27,10 @@ public class Main {
             e.printStackTrace();
         }
 
+    
         System.out.println("Welcome to the Game");
         System.out.println("Press Enter to continue");
+        System.out.print("> ");
 
         Scanner input = new Scanner(System.in);
         String enterkey = input.nextLine(); // Reads input for an enter key.
@@ -60,14 +62,25 @@ public class Main {
 
     public static void gamePlay() {
         Scanner input = new Scanner(System.in);
+        //border title 
+        System.out.println();
+        System.out.println("===============================");
+        System.out.println("    Player Selection Phase!     ");
+        System.out.println("===============================");
+
+
             // Create Team 1
             List<Character> team1 = new ArrayList<>();
+            System.out.println();
             System.out.println("Create Team 1:");
             team1.add(RPGGame.createCharacter(input, "Player 1"));
             team1.add(RPGGame.createCharacter(input, "Player 2"));
     
             // Create Team 2
             List<Character> team2 = new ArrayList<>();
+            System.out.println();
+            System.out.println("-------------------------------");
+            System.out.println();
             System.out.println("Create Team 2:");
             team2.add(RPGGame.createCharacter(input, "Player 3"));
             team2.add(RPGGame.createCharacter(input, "Player 4"));
