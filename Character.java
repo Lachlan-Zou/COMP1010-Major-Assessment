@@ -7,7 +7,7 @@ public class Character {
     int defence;
     int speed;
     DiceRandomiser dice; // Dice randomizer to add unpreditability
-    List<Character> team;
+    //List<Character> team;
 
     public Character( int healthpoint, int strength, int defence, int speed, String playerName){
         this.playerName = playerName;

@@ -102,7 +102,7 @@ public class RPGGame {
 
         System.out.printf("\n--- %s's Turn ---\n", character.playerName);
         System.out.printf("Current HP: %d\n", character.healthpoint);
-        System.out.println("Choose action: (1) Attack  (2) Defend  (3) Dodge");
+        System.out.println("Choose action: (1) Attack  (2) Defend  (3) Dodge (4) Heal");
         System.out.print("> ");
         int action = input.nextInt();
 
@@ -117,6 +117,8 @@ public class RPGGame {
             case 3:
                 character.dodge(enemy, enemyTeam);
                 break;
+            case 4:
+                //character.heal()
             default:
                 System.out.println("Invalid action, attacking by default.");
                 character.attack(enemy, enemyTeam); // Default to attack if invalid action

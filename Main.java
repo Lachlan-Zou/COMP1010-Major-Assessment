@@ -14,14 +14,15 @@ public class Main {
             BufferedWriter writer = new BufferedWriter(new FileWriter(filePath)); 
             writer.write("The game is a turn-based combat game with different classes and actions.");
             writer.write("\nPlayers are put onto teams of two.");
-            writer.write("\nPlayers can choose whether to attack, defend");
+            writer.write("\nPlayers can choose whether to attack, defend, dodge or heal");
             writer.write("\nThe game ends once one team has defeated the other.");
             writer.write("\nPlayers can also choose what class they want to play as.");
             writer.write("\nPress Enter to read about class stats");
-            writer.write("\nHuman has base stats, health: 16, strength: 16 and defence: 18.");
-            writer.write("\nOrc has base stats, health: 20, strength: 18 and defence: 14.");
-            writer.write("\nElf has base stats, health: 15, strength: 14 and defence: 20.");
-            writer.write("\nDwarf has base stats, health: 18, strength: 20 and defence: 16.");
+            writer.write("\nHuman has base stats, health: 16, strength: 16, defence: 18 and speed 3.");
+            writer.write("\nOrc has base stats, health: 20, strength: 18, defence: 14 and speed 1.");
+            writer.write("\nElf has base stats, health: 15, strength: 14, defence: 20 and speed 5.");
+            writer.write("\nDwarf has base stats, health: 18, strength: 20, defence: 16 and speed 4.");
+            writer.write("\nEvery player gets two opportunites to heal for 10 health each.");
             writer.close();
         } catch (IOException e) {
             e.printStackTrace();
