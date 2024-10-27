@@ -1,0 +1,10 @@
+The game is a turn-based combat game with different classes and actions.
+Players are put onto teams of two.
+Players can choose whether to attack, defend
+The game ends once one team has defeated the other.
+Players can also choose what class they want to play as.
+Press Enter to read about class stats
+Human has base stats, health: 16, strength: 16 and defence: 18.
+Orc has base stats, health: 20, strength: 18 and defence: 14.
+Elf has base stats, health: 15, strength: 14 and defence: 20.
+Dwarf has base stats, health: 18, strength: 20 and defence: 16.
