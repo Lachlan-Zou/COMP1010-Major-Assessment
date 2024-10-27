@@ -10,7 +10,7 @@ public class RPGGame {
         System.out.println();
         System.out.println(playerName + ", choose your race:");
         System.out.println("  (1) Human    (2) Orc");
-        System.out.println("  (3) Elf      (2) Dwarf");
+        System.out.println("  (3) Elf      (4) Dwarf");
         System.out.print("> ");
         Integer choice = input.nextInt();
         switch (choice) {
@@ -102,7 +102,7 @@ public class RPGGame {
 
         System.out.printf("\n--- %s's Turn ---\n", character.playerName);
         System.out.printf("Current HP: %d\n", character.healthpoint);
-        System.out.println("Choose action: (1) Attack  (2) Defend  (3) Dodge (4) Heal");
+        System.out.println("Choose action: (1) Attack  (2) Defend  (3) Dodge");
         System.out.print("> ");
         int action = input.nextInt();
 

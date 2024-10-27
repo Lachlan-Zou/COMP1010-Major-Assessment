@@ -59,6 +59,9 @@ public class Character {
         int diceRoll = dice.rollDice();  // Get a random dice roll
         int baseDamage = this.strength - enemy.defence;  // Base damage calculation (Strength - Defence)
         int damage = baseDamage + diceRoll;  // Final damage after adding dice roll
+        if (damage <= 0) {
+            damage = 1;  // Set minimum damage to 1
+        }
         boolean dodgeHit = true;
         if (enemy.speed>this.speed) {
             this.healthpoint -=damage;

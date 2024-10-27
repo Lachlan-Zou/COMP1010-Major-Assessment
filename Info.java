@@ -22,12 +22,12 @@ public class Info {
         String line = reader.readLine(); 
 
         if (line == null) { // When the last line has been reached, return to Main.
-            System.out.println("You have reached the end of info."); 
+            System.out.println(""); 
             return;
         }
 
         System.out.println(line);
-        System.out.println("Press Enter to read next line...");
+        System.out.println("Press Enter");
         scanner.nextLine(); // Takes the next line of info.txt
         readRecursive(reader, scanner); // Enters the line recursively
     }
